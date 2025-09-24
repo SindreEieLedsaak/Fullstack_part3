@@ -1,0 +1,50 @@
+### Get all persons
+GET http://localhost:3001/api/persons
+
+### Get info
+GET http://localhost:3001/info
+
+### Get single person
+GET http://localhost:3001/api/persons/1
+
+### Get non-existing person
+GET http://localhost:3001/api/persons/999
+
+### Add new person (valid)
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "Test Person",
+    "number": "040-1234567"
+}
+
+### Add person with invalid name (too short)
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "AB",
+    "number": "040-1234567"
+}
+
+### Add person with invalid phone number
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "Test Person",
+    "number": "invalid-number"
+}
+
+### Update person
+PUT http://localhost:3001/api/persons/1
+Content-Type: application/json
+
+{
+    "name": "Updated Name",
+    "number": "09-9876543"
+}
+
+### Delete person
+DELETE http://localhost:3001/api/persons/2
