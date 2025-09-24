@@ -12,7 +12,7 @@ const url = process.env.MONGODB_URI.replace('<password>', password)
 mongoose.set('strictQuery', false)
 
 mongoose.connect(url)
-    .then(result => {
+    .then(() => {
         console.log('connected to MongoDB')
     }).catch(error => {
         console.log('error connecting to MongoDB:', error.message)
@@ -24,12 +24,6 @@ const personSchema = new mongoose.Schema({
 })
 
 const Person = mongoose.model('Person', personSchema)
-
-const person = new Person({
-    name: 'John Doe',
-    number: '1234567890',
-})
-
 
 if (process.argv.length === 3) {
     // Display all phonebook entries
